@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spotify Auth Redirect</title>
+    <script>
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        const accessToken = params.get("access_token");
+        if (accessToken) {
+            window.location.href = `https://chat.openai.com?token=${accessToken}`;
+        } else {
+            document.body.innerText = "No token found. Try logging in again.";
+        }
+    </script>
+</head>
+
+<body>
+    Redirecting...
+</body>
+
+</html>
